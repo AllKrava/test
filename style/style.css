@@ -1,0 +1,517 @@
+@font-face{
+    font-family: HelveticaNeueCyr; 
+    src: url(../font/HelveticaNeueCyr-Italic.ttf);
+    font-style: italic;
+}
+@font-face{
+    font-family: HelveticaNeueCyr; 
+    src: url(../font/HelveticaNeueCyr-UltraLight.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face{
+    font-family: HelveticaNeueCyr; 
+    src: url(../font/HelveticaNeueCyr-Thin.ttf);
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face{
+    font-family: HelveticaNeueCyr; 
+    src: url(../font/HelveticaNeueCyr-Light.ttf);
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face{
+    font-family: HelveticaNeueCyr; 
+    src: url(../font/HelveticaNeueCyr-Roman.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face{
+    font-family: HelveticaNeueCyr; 
+    src: url(../font/HelveticaNeueCyr-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face{
+    font-family: HelveticaNeueCyr; 
+    src: url(../font/HelveticaNeueCyr-Black.ttf);
+    font-weight: 900;
+    font-style: normal;
+}
+*,
+	::after,
+	::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: HelveticaNeueCyr;
+}
+img, svg{
+	display: block; 
+}
+a{
+    text-decoration: none;
+    color: #000;
+} 
+ul{
+    list-style: none;
+}
+/*-----------*/
+section{
+    --right-right-flower: calc(100% + 490px);
+    --top-right-flower: calc(0% - 320px);
+    --left-left-flower: calc(0% - 450px);
+    --bottom-left-flower: calc(100% + 260px);
+    position: relative;
+    padding: 30px 100px;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(0deg, #ffffff00 78%, #a0a0a063),
+            var(--left-left-flower) var(--bottom-left-flower) / 650px no-repeat url(../img/flower.svg), 
+            var(--right-right-flower) var(--top-right-flower) / 650px no-repeat url(../img/flower.svg);
+}
+@media (max-width: 991px) {
+    section{
+        padding: 15px 15px;
+    }
+}
+/*-----------*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 991px) {
+    header{
+        flex-wrap: wrap;
+    }
+}
+/*-----------*/
+/*-----------*/
+.logo{
+    width: 229px;
+}
+.logo p{
+    font-size: 12px;
+    text-align: right;
+    padding: 5px 0;
+    font-weight: 200;
+}
+.logo img{
+    width: 100%;
+}
+@media (max-width:660px) {
+    .logo{
+        width: 100%;
+    }
+}
+
+/*-----------*/
+.hamburger, .hamburge-close{
+    display: none;
+}
+@media (max-width:991px) {
+    .hamburger, .hamburge-close{
+        display: block;
+        font-size: 35px;
+        color: #78b660;
+    }
+    .hamburge-close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/*-----------*/
+/*-----------*/
+nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+nav li a{
+    position: relative;
+    margin: 10px 20px;
+    opacity: .6;
+    font-size: 14px;
+    font-weight: 300;
+}
+nav li a:hover{
+    opacity: 1;
+}
+.link a::before{
+    content: '';
+    position: absolute;
+    background-color: #78b95f;
+    opacity: 1;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    transition: .2s;
+}
+.link a:hover::before{
+    width: 100%;
+}
+.menu > a::after{
+    content: "";
+    position: absolute;
+    right: -12px;
+    top: 4px;
+    border-style: solid;
+    border-width: 3px 3px 3px;
+    border-color: #78b95f transparent transparent transparent;
+}
+/*-----------*/
+/*-----------*/
+nav > ul li{
+    position: relative;
+}
+nav ul li > ul {
+    position: absolute;
+    display: none;/*----*/
+    width: max-content;
+    z-index: 9999;
+}
+nav ul li:hover > ul {
+    display: block;
+}
+/*-----------*/
+/*-----------*/
+.menu > ul {
+    top: 100%;
+}
+.menu > ul::before {
+    content: "";
+    width: 0;
+    display: block;
+    border-style: solid;
+    border-width: 5px 15px 5px;
+    margin-left: 25px;
+    border-color: transparent transparent #d7e9ce transparent;
+}
+.menu > ul li{
+    background: #d7e9ce;
+}
+.menu > ul li a{
+    display: block;
+    margin: 0;
+    opacity: 1;
+    padding: 7px 50px 4px 20px;
+}
+.menu ul li a:hover{
+    background: #f2f2f2;
+}
+.menu ul > li:first-child{
+    padding-top: 15px;
+}
+.menu ul > li:last-child{
+    padding-bottom: 15px;
+}
+/*-----------*/
+.submenu{
+    position: revert;
+}
+.submenu > a::after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid;
+    border-color:#d7e9ce #d7e9ce transparent transparent;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%) rotateZ(45deg);
+}
+.submenu:hover, .submenu>a:hover::after {
+    border-color: #78b95f  #78b95f transparent transparent;
+    background: #f2f2f2;
+}
+/*-----------*/
+.submenu ul {
+    top: 10px;
+    bottom: 0;
+    left: 100%;
+    background:#f2f2f2e0;
+}
+.submenu > ul li {
+    background:transparent;
+}
+.submenu > ul li a {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0;
+    opacity: 1;
+    margin: 6px 50px 6px 20px;
+}
+.submenu ul li a:hover {
+    background: transparent;
+}
+/*-----------*/
+@media (max-width:991px) {
+    nav{
+        display: none;
+        position: absolute;
+        z-index: 99999;
+        background:#cccccc;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 15px;
+    }
+    nav ul {
+        display: block;
+    }
+    nav li a {
+        display: inline-block;
+        margin: 0;
+        padding: 10px 0;
+        opacity: .6;
+    }
+    nav ul li > ul {
+        position: relative;
+    }
+    .submenu ul {
+        top: 0;
+        left: 0;
+    }
+}
+/*-----------*/
+/*-----------*/
+header .call{
+    text-align: right;
+    font-size: 18px;
+    font-weight: 200;
+    opacity: .8;
+}
+header .call p{
+    font-size: 14px;
+    padding: 8px 0;
+    font-weight: 500;
+    opacity: .7;
+}
+header .call:hover{
+    opacity: 1;
+}
+.call-mob{
+    display: none;
+}
+@media (max-width:991px) {
+    header .call{
+        display: none;
+    }
+    .call-mob{
+        display: block;
+        font-size: 35px;
+        color: #78b660;
+    }
+}
+/*-----------*/
+/*-----------*/
+.banner-wrap{
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    height: 95vh;
+    margin-top: 40px;
+    overflow: hidden;
+}
+.banner{
+    position: relative;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+    background: 0 100% / 50% no-repeat url(../img/flower.png);
+}
+/*-----------*/
+.banner .discount{
+    width: max-content;
+    margin: 80px 0px 0 80px;
+    max-width: 45%;
+    position: relative;
+    padding: 5px 40px 5px 40px;
+    opacity: .8;
+    background: 0 0 / contain no-repeat url(../img/brace.svg);
+    z-index: 1;
+}
+.banner .discount::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: 0 0 / contain no-repeat url(../img/brace.svg);
+    transform: rotate(180deg);
+}
+.banner .discount h4{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.banner .discount p{
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.banner .discount span{
+    font-size: 50px;
+    font-weight: 700;
+    color: #78b660;
+    vertical-align: bottom;
+    line-height: 0.1;
+}
+@media (max-width:991px) {
+    .banner-wrap{
+        margin-top: 10px;
+    }
+    .banner .discount h4{
+        font-size: 16px;
+    }
+    .banner .discount p{
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    .banner .discount span{
+        font-size: 20px;
+    }
+}
+@media (max-width:691px) {
+    .banner-wrap{
+        height: auto;
+    }
+    .banner .discount{
+        margin: 0;
+        max-width: 85%;
+        padding: 5px 30px 5px 30px;
+    }
+}
+/*-----------*/
+.banner .img-wrap{
+    position: absolute;
+    max-width: 40%;
+    top: 0;
+    right: 0;
+}
+.banner .img-wrap img{
+    width: 100%;
+}
+@media (max-width:991px) {
+    .banner .img-wrap{
+        max-width: 60%;
+    }
+}
+@media (max-width:691px) {
+    .banner .img-wrap{
+        position: relative;
+        max-width: 100%;
+    }
+}
+/*-----------*/
+.banner .content{
+    width: 100%;
+    max-height: 35%;
+    text-align: center;
+    overflow-y: auto;
+    opacity: .8;
+    padding: 20px;
+    margin-top: 40px;
+}
+.banner .content::-webkit-scrollbar {
+    width: 5px;
+    background:  transparent;
+}
+.banner .content::-webkit-scrollbar-thumb { 
+    background: #92919170;
+    border-radius: 3px;
+}
+.banner .content::-webkit-scrollbar-thumb:hover { 
+    background: #78b660;
+}
+.banner .content h3{
+    font-size: 30px;
+    font-weight: 200;
+    margin-bottom: 25px;
+}
+.banner .content p{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+}
+@media (max-width:991px) {
+    .banner .content{
+        margin-top: 10px;
+    }
+}
+/*-----------*/
+.banner-wrap .pagination-wrap{
+    position: absolute;
+    z-index: 9999;
+    top: 60%;
+    left: 10%;
+    display: flex;
+}
+.banner-wrap input[name="banner"], input[name="hamburge"]{
+    position: absolute;
+    visibility: hidden;
+}
+
+.pagination-wrap .pagination{
+    margin: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #b5b5b5;
+    cursor: pointer;
+}
+.pagination-wrap .pagination:hover{
+    background:#868585;
+}
+@media (max-width:991px) {
+    .banner-wrap .pagination-wrap{
+        top: 350px;
+    }
+    .pagination-wrap .pagination{
+        margin: 15px;
+        width: 20px;
+        height: 20px;
+    }
+}
+/*-----------*/
+/*-----------*/
+#banner-toggle-1:checked ~ div #p1{
+    background: #78b660!important;
+}
+#banner-toggle-2:checked ~ div #p2{
+    background: #78b660!important;
+}
+#banner-toggle-3:checked ~ div #p3{
+    background: #78b660!important;
+}
+/*-----------*/
+#banner-toggle-1:checked ~ #banner-1{
+    display: flex;
+}
+#banner-toggle-2:checked ~ #banner-2{
+    display: flex;
+}
+#banner-toggle-3:checked ~ #banner-3{
+    display: flex;
+}
+
+
+#hamburge-toggle:checked ~ nav{
+    display: block;
+}
+
+#hamburge-toggle-clos:checked ~ nav{
+    display: none;
+}
+/*-----------*/
+/*-----------*/
